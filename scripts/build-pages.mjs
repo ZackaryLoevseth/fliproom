@@ -5,6 +5,7 @@ import {tmpdir} from 'node:os';
 import {dirname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawn} from 'node:child_process';
+import {writeReleaseNotices} from './third-party-notices.mjs';
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -92,6 +93,7 @@ async function main() {
   });
   if (code !== 0) throw new Error(`Static export failed (exit ${code}). Its isolated staging files remain at ${staging}.`);
   await writeFile(join(staging, 'out/.nojekyll'), '');
+  await writeReleaseNotices(projectRoot, join(staging, 'out'));
   console.log(`Static export complete: ${join(staging, 'out')}`);
   console.log('No deployment was performed. Runtime Sanity reads still require published content and an approved CORS origin.');
 }

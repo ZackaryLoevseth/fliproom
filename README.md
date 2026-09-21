@@ -2,6 +2,8 @@
 
 A visual changeover planner for one fictional shared room. Choose two layouts, see their furniture footprints, and work through a dependency-aware move checklist. Created locally with AI coding assistance for a proposed DEV/Sanity Path Two entry. No entry has been submitted.
 
+![Fliproom showing published Sanity layouts and a changeover checklist](docs/fliproom.png)
+
 ## Run locally
 
 Node 22.12 or newer is required by the dependencies. Development used Node 26.7.
@@ -62,6 +64,6 @@ A separate export contains the planner and public Sanity reader. The editing Stu
 NEXT_PUBLIC_SANITY_PROJECT_ID=YOUR_PROJECT_ID NEXT_PUBLIC_SANITY_DATASET=YOUR_DATASET npm run build:pages -- --base-path /fliproom
 ```
 
-The command builds in an isolated temporary directory and prints its `out` path. It does not deploy anything. Add the exact website origin to Sanity's CORS list without credentials before serving that export publicly. Browser reads use no token, and a failed read displays a retry screen. The repository name must match the chosen base path.
+The command builds in an isolated temporary directory and prints its `out` path. It does not deploy anything. Add the exact website origin to Sanity's CORS list without credentials before serving that export publicly. Browser reads use no token, and a failed read displays a retry screen. The repository name must match the chosen base path. Static exports include `LICENSE` and generated `THIRD_PARTY_NOTICES.txt`; dependency notices retain their original licenses.
 
 Local `.env` files, private attempt notes and evidence are ignored by Git. Never publish access tokens or private room content.
