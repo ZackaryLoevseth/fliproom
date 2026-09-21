@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.env*
+!.env.example
+*.tsbuildinfo
+.DS_Store
+dist/
+CHECKPOINT.md
+SUBMISSION_DRAFT.md
+evidence/
+AGENTS.md
+CLAUDE.md
